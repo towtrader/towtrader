@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(200, 52%, 65%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* TowTrader custom colors */
+  --primary-blue: hsl(200, 52%, 65%);
+  --dark-blue: hsl(200, 52%, 60%);
+  --secondary-orange: hsl(200, 52%, 65%);
+  --light-blue: hsl(219, 100%, 97%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(200, 52%, 65%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  
+  /* TowTrader custom colors for dark mode */
+  --primary-blue: hsl(200, 52%, 65%);
+  --dark-blue: hsl(200, 52%, 60%);
+  --secondary-orange: hsl(200, 52%, 65%);
+  --light-blue: hsl(219, 100%, 97%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  /* Fix for Radix UI Select value display */
+  [data-radix-select-trigger] {
+    color: inherit !important;
+  }
+
+  /* Image optimization for better quality on all devices */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  /* Prevent blurry images on high-DPI displays */
+  img[src*="base64"] {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+
+  /* Ensure static images load with optimal quality */
+  img[src*="/attached_assets/"], img[src*="/assets/"] {
+    image-rendering: auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  [data-radix-select-trigger] [data-radix-select-value] {
+    color: inherit !important;
+    opacity: 1 !important;
+  }
+}
+
+@layer utilities {
+  .text-primary-blue {
+    color: hsl(200, 52%, 65%);
+  }
+  
+  .bg-primary-blue {
+    background-color: hsl(200, 52%, 65%);
+  }
+  
+  .text-dark-blue {
+    color: hsl(200, 52%, 60%);
+  }
+  
+  .bg-dark-blue {
+    background-color: hsl(200, 52%, 60%);
+  }
+  
+  .text-secondary-orange {
+    color: hsl(200, 52%, 65%);
+  }
+  
+  .bg-secondary-orange {
+    background-color: hsl(200, 52%, 65%);
+  }
+  
+  .bg-light-blue {
+    background-color: hsl(219, 100%, 97%);
+  }
+  
+  .hover\:bg-orange-600:hover {
+    background-color: hsl(200, 52%, 60%);
+  }
+}
